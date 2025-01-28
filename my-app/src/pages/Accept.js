@@ -1,14 +1,13 @@
 import React from "react";
-import "../App.css";
+import StatusMessage from "../components/StatusMessage";
 
-function Accept() {
+const Accept = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>You have accepted!</p>
-      </header>
-    </div>
+    <StatusMessage
+      title="Spot Confirmed"
+      message="Your spot for the event is secured. We’re excited to see you there! If you need to cancel, you can do so via Email or contact us via WhatsApp."
+    />
   );
-}
+};
 
 export default Accept;

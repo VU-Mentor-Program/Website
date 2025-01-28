@@ -1,14 +1,13 @@
 import React from "react";
-import "../App.css";
+import StatusMessage from "../components/StatusMessage";
 
-function Decline() {
+const Decline = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>You have declined!</p>
-      </header>
-    </div>
+    <StatusMessage
+      title="Cancelled Spot"
+      message="Thank you for cancelling and giving a spot to someone else 😊"
+    />
   );
-}
+};
 
 export default Decline;
