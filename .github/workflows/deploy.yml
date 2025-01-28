@@ -27,8 +27,11 @@ jobs:
         run: |
           cd my-app
           yarn build
-          ls -la my-app/build || echo "Build folder not found!"  # ✅ Debugging step
-          if [ -d "my-app/build" ]; then mv my-app/build ../build; else echo "Build folder missing"; exit 1; fi  # ✅ Fix: Only move if build exists
+          echo "Checking build directory after build..."
+          ls -la
+          echo "Checking my-app/build directory..."
+          ls -la build || echo "❌ Build folder not found!"
+          mv build ../build || echo "❌ Failed to move build folder!"
 
       - name: Deploy to GitHub Pages (Main Branch)
         uses: JamesIves/github-pages-deploy-action@v4
