@@ -1,14 +1,19 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Accept from "./pages/Accept";
+import Decline from "./pages/Decline";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hello World!
-        </p>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/accept" element={<Accept />} />
+        <Route path="/decline" element={<Decline />} />
+      </Routes>
+    </Router>
   );
 }
 
