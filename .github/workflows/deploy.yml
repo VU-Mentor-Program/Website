@@ -32,7 +32,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: my-app/build
+          folder: my-app/build  # ✅ Fix: Deploying only the build folder
           clean: true
-
-          
+          clean-exclude: ".github"
