@@ -1,19 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
+import styled from "styled-components";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import SocialLinks from "../components/SocialLinks";
+import Logo from "../components/Logo";
 
-function Homepage() {
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #1a1d2a;
+  color: white;
+  text-align: center;
+`;
+
+const Title = styled.h1`
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const Subtitle = styled.p`
+  font-size: 16px;
+`;
+
+const Homepage = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Welcome to the Homepage!</p>
-        <nav>
-          <Link to="/accept">Go to Accept</Link> |{" "}
-          <Link to="/decline">Go to Decline</Link>
-        </nav>
-      </header>
-    </div>
+    <PageContainer>
+      <Header />
+      <Logo />
+      <Title>Mentor Program</Title>
+      <Subtitle>Aiming to bring first-year students together 😊</Subtitle>
+      <SocialLinks />
+      <Footer />
+    </PageContainer>
   );
-}
+};
 
 export default Homepage;
