@@ -12,7 +12,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="accept" element={<Accept />} />
         <Route path="decline" element={<Decline />} />
-        {/* Optional: Add a catch-all route for undefined paths */}
       </Routes>
     </Router>
   );
