@@ -7,6 +7,8 @@ const Accept = () => {
   const fetchUrl = searchParams.get("api_url");
 
   useEffect(() => {
+    console.log("fetchUrl", fetchUrl);
+
     const fetchData = async () => {
       if (fetchUrl) {
         try {
