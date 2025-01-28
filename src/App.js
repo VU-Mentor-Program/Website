@@ -7,11 +7,11 @@ import "./App.css";
 
 function App() {
   return (
-    <Router basename="/Website">
+    <Router basename={process.env.NODE_ENV === "production" ? "/Website" : "/"}>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="accept" element={<Accept />} />
-        <Route path="decline" element={<Decline />} />
+        <Route path="/accept" element={<Accept />} />
+        <Route path="/decline" element={<Decline />} />
       </Routes>
     </Router>
   );
