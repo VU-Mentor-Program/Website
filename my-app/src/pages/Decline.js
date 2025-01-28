@@ -4,13 +4,19 @@ import StatusMessage from "../components/StatusMessage";
 
 const Decline = () => {
   const [searchParams] = useSearchParams();
-  const fetchUrl = searchParams.get("api_url");
 
   useEffect(() => {
-    console.log("fetchUrl", fetchUrl);
-
     const fetchData = async () => {
-      if (fetchUrl) {
+      const baseApiUrl = searchParams.get("api_url"); // Get the base API URL
+      if (baseApiUrl) {
+        // Extract all other query parameters except 'api_url'
+        const params = new URLSearchParams(searchParams);
+        params.delete("api_url"); // Remove the base URL parameter itself
+
+        // Build the full fetch URL
+        const fetchUrl = `${baseApiUrl}&${params.toString()}`;
+        console.log("fetchUrl:", fetchUrl);
+
         try {
           const response = await fetch(fetchUrl);
           if (!response.ok) {
@@ -19,11 +25,13 @@ const Decline = () => {
         } catch (error) {
           alert("Failed to fetch: " + error.message);
         }
+      } else {
+        console.error("API URL (api_url) not provided in query parameters");
       }
     };
 
     fetchData();
-  }, [fetchUrl]);
+  }, [searchParams]);
 
   return (
     <StatusMessage
