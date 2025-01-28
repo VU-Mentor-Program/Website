@@ -27,8 +27,8 @@ jobs:
         run: |
           cd my-app
           yarn build
-          rm -rf ../build  # ✅ Ensure old build is deleted
-          mv my-app/build ../build  # ✅ Move build to repo root
+          ls -la my-app/build || echo "Build folder not found!"  # ✅ Debugging step
+          if [ -d "my-app/build" ]; then mv my-app/build ../build; else echo "Build folder missing"; exit 1; fi  # ✅ Fix: Only move if build exists
 
       - name: Deploy to GitHub Pages (Main Branch)
         uses: JamesIves/github-pages-deploy-action@v4
