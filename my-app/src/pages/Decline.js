@@ -4,7 +4,7 @@ import StatusMessage from "../components/StatusMessage";
 
 const Decline = () => {
   const [searchParams] = useSearchParams();
-  const fetchUrl = searchParams.get("url");
+  const fetchUrl = searchParams.get("api_url");
 
   useEffect(() => {
     const fetchData = async () => {
